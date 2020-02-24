@@ -1,12 +1,14 @@
 <template>
   <header class="header">
-    <h1>Todo List</h1>
+    <h1>{{phrase}}</h1>
+    <h2>{{name}}</h2>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  props: ["phrase", "name"]
 };
 </script>
 

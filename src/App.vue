@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-bind:phrase="phrase" v-bind:name="name" />
     <AddTodo v-on:add-todo="addTodo" />
     <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
   </div>
@@ -39,7 +39,9 @@ export default {
           isImportant: false,
           isComplete: false
         }
-      ]
+      ],
+      phrase: "Welcome Todo Menu!",
+      name: "Christopher Maisch"
     };
   },
   methods: {
@@ -51,6 +53,9 @@ export default {
     addTodo(newTodo) {
       this.todos = [...this.todos, newTodo];
     }
+  },
+  created: () => {
+    console.log("App Running");
   }
 };
 </script>
