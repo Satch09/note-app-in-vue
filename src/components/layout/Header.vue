@@ -4,20 +4,30 @@
     <h2>{{ name }}</h2>
     <h2>{{ text }}</h2>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
+    <div>{{allTodos.title}}</div>
+    <div>{{allItems.name}}</div>
   </header>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Header",
   props: ["phrase", "name"], // These refer to external properties which the component is able to accept
+  methods: {
+    ...mapActions(["fetchTodos"])
+  },
   data() {
     return {
       text: "This is the default banner"
     };
+  },
+  computed: mapGetters(["allTodos", "allItems"]),
+  created() {
+    this.fetchTodos();
   }
 };
 </script>

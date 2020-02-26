@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :phrase="phrase" :name="name" />
-
+    <div>{{foo}}</div>
     <router-view />
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
       phrase: "Welcome Todo Menu!",
       name: "Christopher Maisch"
     };
+  },
+  computed: {
+    foo() {
+      return this.$store.state.isStateActive;
+    }
   }
 };
 </script>
