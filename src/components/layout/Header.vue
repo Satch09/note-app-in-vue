@@ -1,14 +1,14 @@
 <template>
   <header class="header">
-    <h1>{{ phrase }}</h1>
+    <!-- <h1>{{ phrase }}</h1>
     <h2>{{ name }}</h2>
-    <h2>{{ text }}</h2>
+    <h2>{{ text }}</h2>-->
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <div>{{allTodos.title}}</div>
-    <div>{{allItems.name}}</div>
+    <div>{{ company.name }}</div>
+    <div>{{ `${allUsers[0].firstName} ${allUsers[0].lastName} ` }}</div>
   </header>
 </template>
 
@@ -25,14 +25,14 @@ export default {
       text: "This is the default banner"
     };
   },
-  computed: mapGetters(["allTodos", "allItems"]),
+  computed: mapGetters(["company", "allUsers"]),
   created() {
     this.fetchTodos();
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   background: #333;
   color: #fff;
@@ -49,10 +49,10 @@ export default {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #fdfdfd;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #47ce91;
     }
   }
 }

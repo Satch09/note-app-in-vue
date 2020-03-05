@@ -1,26 +1,38 @@
 <template>
   <div id="app">
+    <!-- <foo_counter> -->
+    <h2>This is other text</h2>
+    <!-- </foo_counter> -->
     <Header :phrase="phrase" :name="name" />
-    <div>{{foo}}</div>
+    <Projects />
+    <!-- <div>{{ foo }}</div> -->
+    <div v-if="getIsStateActive === true">TRUE!!</div>
+    <div v-else>FALSE!!</div>
     <router-view />
   </div>
 </template>
 
 <script>
 import Header from "./components/layout/Header.vue";
+import Projects from "./components/layout/Projects.vue";
+
 export default {
-  name: "app",
+  name: "App",
+
   components: {
-    Header
+    Header,
+    Projects
   },
+
   data() {
     return {
       phrase: "Welcome Todo Menu!",
       name: "Christopher Maisch"
     };
   },
+
   computed: {
-    foo() {
+    getIsStateActive() {
       return this.$store.state.isStateActive;
     }
   }

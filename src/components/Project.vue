@@ -1,20 +1,24 @@
 <template>
-  <div class="todo-item" :class="{ 'is-complete': todo.completed }">
-    <p>
-      {{ todo.title }}
-      <input type="checkbox" @change="markComplete" :checked="this.todo.completed" />
-      <button @click="$emit('del-todo', todo.userId)" class="del">X</button>
-    </p>
+  <div class="todo-item" :class="{ 'is-complete': project.completed }">
+    <!-- <div class="todo-item"> -->
+    <h2>{{ project.name }}</h2>
+    <h3>{{ project.details }}</h3>
+    <p>{{ project.tags }}</p>
+    <input
+      type="checkbox"
+      @change="markComplete"
+      :checked="this.project.completed"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: "TodoItem",
-  props: ["todo"],
+  name: "Project",
+  props: ["project"],
   methods: {
     markComplete() {
-      this.todo.completed = !this.todo.completed;
+      this.project.completed = !this.project.completed;
     }
   }
 };
